@@ -1,8 +1,8 @@
 pipeline {
     stages {
-        stage('Example') {
+        stage('Checkout source code') {
             steps {
-                echo "${params.Greeting} World!"
+                git branch: 'master', url: 'https://github.com/krushnatkhawale/student-service.git'
             }
         }
     }
