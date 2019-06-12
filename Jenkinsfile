@@ -1,4 +1,5 @@
 pipeline {
+    agent node0
     stages {
         stage('Checkout source code') {
             steps {
