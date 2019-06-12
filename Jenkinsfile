@@ -6,5 +6,10 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/krushnatkhawale/student-service.git'
             }
         }
+        stage('Build') {
+            steps {
+                sh './gradlew build'
+            }
+        }
     }
 }
