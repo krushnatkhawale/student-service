@@ -1,16 +1,8 @@
-pipeline {
-    agent any
-    stages {
-        stage('Checkout source code') {
-            steps {
-                git branch: 'master', url: 'https://github.com/krushnatkhawale/student-service.git'
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'chmod +x gradlew'
-                sh './gradlew build'
-            }
-        }
-    }
-}
+library identifier: 'cd-git@master', retriever: modernSCM([ $class: 'GitSCMSource', remote: 'git@github.com:krushnatkhawale/cd-lib.git'])
+
+pipelineChooser([
+    "hi1": "prop1",
+    "hi2": "prop2",
+    "hi3": "prop3",
+    "hi4": "prop4"
+])
