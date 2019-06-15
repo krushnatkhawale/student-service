@@ -1,3 +1,2 @@
 [ApplicationServers]
-  hosts:
-    node0:
+node0
