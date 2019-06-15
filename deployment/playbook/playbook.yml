@@ -1,2 +1,2 @@
 - name: Test play book
-
+  hosts: node0
