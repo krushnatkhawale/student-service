@@ -15,3 +15,7 @@
         path: /usr/pi-as-server/student-service
         state: directory
         mode: '0755'
+    - name: Copy application jar
+      copy:
+        src: app/build/lib/api*.jar
+        dest: /usr/pi-as-server/student-service/
