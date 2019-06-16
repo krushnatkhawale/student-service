@@ -1,4 +1,4 @@
 - name: deployment playbook
-  hosts: pi-app-servers
+  hosts: webservers
   roles:
     - students-service
