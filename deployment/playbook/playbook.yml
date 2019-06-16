@@ -17,6 +17,8 @@
         mode: '0755'
     - name: Copy application jar check shell
       shell: echo `pwd`
+      register: hhhh
+    - debug: msg="{{hhhh.stdout}}"
     - name: Copy application jar
       copy:
         src: /var/lib/jenkins/workspace/student-service_master/app/build/lib/api*.jar
