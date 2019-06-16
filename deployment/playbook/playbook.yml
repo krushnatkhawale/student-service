@@ -2,4 +2,4 @@
 - hosts: webservers
   remote_user: root
   roles:
-    - student-service
+    - { role: student-service }
