@@ -17,5 +17,5 @@
         mode: '0755'
     - name: Copy application jar
       copy:
-        src: app/build/lib/api*.jar
+        src: /var/lib/jenkins/workspace/student-service_master/app/build/lib/api*.jar
         dest: /usr/pi-as-server/student-service/
