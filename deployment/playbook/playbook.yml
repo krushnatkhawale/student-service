@@ -3,16 +3,3 @@
   become: true
   remote_user: pi
   gather_facts: false
-  tasks:
-    - name: Test connection
-      ping:
-    - name: Create base installation directory if does not exists
-      file:
-        path: /usr/pi-as-server
-        state: directory
-        mode: '777'
-    - name: Create application base directory if does not exists
-      file:
-        path: /usr/pi-as-server/student-service
-        state: directory
-        mode: '777'
