@@ -1,4 +1,4 @@
-- name: deployment playbook
-  hosts: node0
+---
+- hosts: node0
   roles:
     - student-service
