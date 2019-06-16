@@ -9,9 +9,9 @@
       file:
         path: /usr/pi-as-server
         state: directory
-        mode: '0755'
+        mode: '777'
     - name: Create application base directory if does not exists
       file:
         path: /usr/pi-as-server/student-service
         state: directory
-        mode: '0755'
+        mode: '777'
