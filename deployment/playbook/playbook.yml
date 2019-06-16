@@ -15,8 +15,10 @@
         path: /usr/pi-as-server/student-service
         state: directory
         mode: '0755'
-    - name: Copy application jar check shell
-      shell: mkdir test-ddddir
+    - name: Find out playbooks path
+      shell: pwd
+      register: playbook_path_output
+    - debug: var=playbook_path_output.stdout
     - name: Copy application jar
       copy:
         src: /var/lib/jenkins/workspace/student-service_master/app/build/lib/api*.jar
