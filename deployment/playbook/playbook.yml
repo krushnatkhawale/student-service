@@ -1,5 +1,4 @@
 - name: deployment playbook
-  hosts: node0
-  become: true
-  remote_user: pi
-  gather_facts: false
+  hosts: pi-app-servers
+  roles:
+    - students-service
