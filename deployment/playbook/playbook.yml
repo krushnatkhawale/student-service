@@ -5,12 +5,12 @@
   tasks:
     - name: Test connection
       ping:
-    - name: Create base installation directory exists
+    - name: Create base installation directory if does not exists
       file:
         path: /usr/pi-as-server
         state: directory
         mode: '0755'
-    - name: Create application base directory
+    - name: Create application base directory if does not exists
       file:
         path: /usr/pi-as-server/student-service
         state: directory
