@@ -2,6 +2,7 @@
   hosts: node0
   become: true
   remote_user: pi
+  gather_facts: false
   tasks:
     - name: Test connection
       ping:
