@@ -1,4 +1,4 @@
 ---
-- hosts: node0
+- hosts: webservers
   roles:
     - student-service
