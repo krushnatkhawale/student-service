@@ -1,3 +1,4 @@
 - name: Test play book
   hosts: node0
   become: true
+  remote_user: pi
