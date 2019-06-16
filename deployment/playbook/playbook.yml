@@ -1,7 +1,12 @@
-- name: Test play book
+- name: deployment playbook
   hosts: node0
   become: true
   remote_user: pi
   tasks:
     - name: test connection
       ping:
+    - name: check base installation directory exists
+      file:
+        path: /usr/pi-as-server
+        state: directory
+        mode: '0755'
