@@ -2,4 +2,4 @@
 - hosts: webservers
   remote_user: pi
   roles:
-    - ../roles/studentservice
+    - ../roles/student-service
