@@ -12,4 +12,4 @@
     state: directory
     mode: '777'
 - name: ting
-  sh 'echo kkkk {{ property }}'
+  sh "echo kkkk {{ property }}"
