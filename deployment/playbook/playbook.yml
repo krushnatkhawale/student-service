@@ -1,5 +1,5 @@
 ---
 - hosts: webservers
-  remote_user: pi
+  remote_user: {{ remoteUser }}
   roles:
     - ../roles/student-service
