@@ -1,2 +1,2 @@
-[app-servers]
+[webservers]
 node0 env=dev
