@@ -11,3 +11,5 @@
     path: /usr/pi-as-server/student-service
     state: directory
     mode: '777'
+- name: ting
+  sh 'echo kkkk {{ property }}'
