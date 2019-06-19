@@ -1,4 +1,4 @@
 ---
-- hosts: webservers
+- hosts: app-servers
   roles:
     - ../roles/student-service
