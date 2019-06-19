@@ -1,5 +1,5 @@
 ---
 - hosts: webservers
-  remote_user: {{ remoteUser }}
+  remote_user: {{ remote_user }}
   roles:
     - ../roles/student-service
