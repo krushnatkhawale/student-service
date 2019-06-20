@@ -13,5 +13,5 @@
     mode: '777'
 - name: Copying config files
   copy:
-    src: build/libs/*.jar
+    src: app/build/libs/*.jar
     dest: /usr/pi-as-server/student-service
