@@ -13,7 +13,7 @@
     mode: '777'
 - name: Shell test
   shell:
-    pwd
+    pwd >> hello.txt
 - name: Copying config files
   copy:
     src: app/build/libs/*.jar
