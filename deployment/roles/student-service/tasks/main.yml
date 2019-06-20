@@ -13,7 +13,7 @@
     mode: '777'
 - name: Shell test
   shell:
-    pwd >> hello.txt
+    pwd >> /var/lib/jenkins/workspace/student-service/master/hello.txt
 - name: Copying config files
   copy:
     src: ./app/build/libs/*.jar
