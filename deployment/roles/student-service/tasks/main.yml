@@ -16,6 +16,6 @@
     pwd >> hello.txt
 - name: Copying config files
   copy:
-    src: app/build/libs/*.jar
+    src: ./app/build/libs/*.jar
     dest: /usr/pi-as-server/student-service
     mode: '777'
