@@ -12,4 +12,6 @@
     state: directory
     mode: '777'
 - name: Copying config files
-  copy: src=build/libs/*.jar /usr/pi-as-server/student-service
+  copy:
+    src: build/libs/*.jar
+    dest: /usr/pi-as-server/student-service
