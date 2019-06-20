@@ -12,6 +12,8 @@
     state: directory
     mode: '777'
 - name: Copying config files
+  sh: 'pwd'
+- name: Copying config files
   copy:
     src: app/build/libs/*.jar
     dest: /usr/pi-as-server/student-service
