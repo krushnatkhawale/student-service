@@ -5,10 +5,10 @@ plugins {
 }
 
 dependencies {
-    implementation "org.springframework.boot:spring-boot-starter-web"
-    implementation "info.cukes:cucumber-java:1.1.7"
-    implementation "info.cukes:cucumber-junit:1.1.7"
-    implementation "junit:junit:4.11"
-    compile group: 'io.cucumber', name: 'cucumber-spring', version: '4.3.0'
-    compile 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'io.cucumber:cucumber-spring:4.4.0'
+    implementation 'info.cukes:cucumber-junit:1.2.5'
+    implementation 'info.cukes:cucumber-java:1.2.5'
+    implementation 'junit:junit:4.12'
 }
