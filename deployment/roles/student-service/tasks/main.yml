@@ -11,11 +11,8 @@
     path: /usr/pi-as-server/student-service
     state: directory
     mode: '777'
-- name: Shell test
-  shell:
-    pwd >> /var/lib/jenkins/workspace/student-service/master/hello.txt
-- name: Copying config files
-  copy:
-    src: ./app/build/libs/*.jar
-    dest: /usr/pi-as-server/student-service
-    mode: '777'
+#- name: Copying config files
+#  copy:
+#    src: ./app/build/libs/*.jar
+#    dest: /usr/pi-as-server/student-service
+#    mode: '777'
