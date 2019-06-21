@@ -1,4 +1,4 @@
-package com.services.student;
+package com.services.student.client;
 
 import com.services.student.model.Student;
 import org.springframework.http.ResponseEntity;

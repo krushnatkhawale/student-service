@@ -1,4 +1,6 @@
-import com.services.student.RestClient;
+package com.services.student.steps;
+
+import com.services.student.client.RestClient;
 import com.services.student.model.Student;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -11,7 +13,6 @@ import static org.springframework.http.HttpStatus.OK;
 public class PostStudentStepDefs {
     private Student student;
     private RestClient client;
-    private Student retrievedStudent;
     private ResponseEntity<Student> postStudentResponseEntity;
 
     @Given("^A student is ready$")
