@@ -4,6 +4,6 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"html:target/cucumber"})
+@CucumberOptions(plugin = {"pretty", "html:build/reports/cucumber"}, tags = "@SmokeTest")
 public class RunCucumberTest{
 }
