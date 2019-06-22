@@ -1,5 +1,3 @@
-package com.services.student.steps;
-
 import com.services.student.client.RestClient;
 import com.services.student.model.Student;
 import cucumber.api.java.en.Given;
@@ -11,12 +9,11 @@ import org.springframework.http.ResponseEntity;
 import static org.junit.Assert.assertEquals;
 import static org.springframework.http.HttpStatus.OK;
 
-public class PostStudentStepDefs {
-    private Student student;
-
+public class PostStepDefs {
     @Autowired
     private RestClient client;
     private ResponseEntity<Student> postStudentResponseEntity;
+    private Student student;
 
     @Given("^A student is ready$")
     public void aStudentIsReady() {
@@ -32,4 +29,5 @@ public class PostStudentStepDefs {
     public void aStudentProfileIsCreated() {
         assertEquals(postStudentResponseEntity.getStatusCode(), OK);
     }
+
 }
