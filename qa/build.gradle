@@ -9,7 +9,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'io.cucumber:cucumber-spring:4.4.0'
-    implementation 'info.cukes:cucumber-junit:1.2.5'
-    implementation 'info.cukes:cucumber-java:1.2.5'
+    implementation 'io.cucumber:cucumber-junit:4.4.0'
+    implementation 'io.cucumber:cucumber-java:4.4.0'
     implementation 'junit:junit:4.12'
 }
