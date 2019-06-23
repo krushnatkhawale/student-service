@@ -19,7 +19,7 @@ public class RestClient {
 
     public ResponseEntity<Void> postStudent(Student student) {
         return restTemplate.
-                postForEntity(postURL, (student), Void.class);
+                postForEntity(postURL, "", Void.class);
     }
 
     private HttpEntity<Student> getRequestEntity(Student student) {
