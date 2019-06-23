@@ -20,9 +20,11 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public void newStudent(@RequestBody Student student) {
+    public ResponseEntity newStudent(@RequestBody Student student) {
         log.info("Save a student: {}", student.getId());
         studentService.save(student);
+
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/students")

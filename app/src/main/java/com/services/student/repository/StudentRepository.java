@@ -4,10 +4,7 @@ import com.services.student.exception.NotFoundException;
 import com.services.student.model.Student;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.Objects.isNull;
 
@@ -19,8 +16,11 @@ public class StudentRepository {
 
     private static final Map<String, Student> STUDENTS = new HashMap<>();
 
-    public void saveStudent(Student newStudent) {
-        STUDENTS.put(newStudent.getId(), newStudent);
+    public Student saveStudent(Student newStudent) {
+        String id = UUID.randomUUID().toString();
+        newStudent.setId(id);
+        STUDENTS.put(id, newStudent);
+        return newStudent;
     }
 
     public Student findStudent(String providedId) {

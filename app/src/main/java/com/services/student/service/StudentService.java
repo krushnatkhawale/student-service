@@ -16,8 +16,8 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public void save(Student student) {
-        studentRepository.saveStudent(student);
+    public Student save(Student student) {
+        return studentRepository.saveStudent(student);
     }
 
     public Student get(String id) {

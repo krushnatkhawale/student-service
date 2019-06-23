@@ -1,20 +1,42 @@
 package com.services.student.config;
 
 import com.services.student.client.RestClient;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Collections;
+
+import static java.lang.String.format;
 
 @Configuration
 public class CucumberConfig {
 
+    public static final String ROOT_URI_FORMAT = "http://%s:%s";
+    private String host;
+
+    @Value("${port}")
+    private String port;
+
     @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
+    public RestTemplate restTemplate(@Value("${hostname}") String host, @Value("${hostname}") String port) {
+        String baseHost = format(ROOT_URI_FORMAT, host, port);
+
+        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
+        converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));
+
+        return new RestTemplateBuilder()
+                .rootUri(baseHost)
+                .messageConverters(converter)
+                .build();
     }
 
     @Bean
-    public RestClient restClient(RestTemplate restTemplate){
+    public RestClient restClient(RestTemplate restTemplate) {
         return new RestClient(restTemplate);
     }
 }
