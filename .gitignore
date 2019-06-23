@@ -8,3 +8,6 @@
 *.ipr
 /out/
 /app/out/
+/app/build/
+/qa/out
+/qa/build/
