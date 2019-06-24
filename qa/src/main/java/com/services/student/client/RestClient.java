@@ -29,8 +29,8 @@ public class RestClient {
         restTemplate.setMessageConverters(messageConverters);
 
         ResponseEntity<Void> voidResponseEntity = restTemplate.
-                exchange(postURL, HttpMethod.POST,getRequestEntity("{ \"aa\":\"a\"}"), Void.class);
-        return  voidResponseEntity;
+                exchange(postURL, HttpMethod.POST, getRequestEntity(student), Void.class);
+        return voidResponseEntity;
     }
 
     private HttpEntity<Student> getRequestEntity(Student student) {
