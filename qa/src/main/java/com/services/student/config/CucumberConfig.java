@@ -2,7 +2,6 @@ package com.services.student.config;
 
 import com.services.student.client.RestClient;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -12,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Collections;
 
 import static java.lang.String.format;
+import static java.util.Arrays.asList;
 
 @Configuration
 public class CucumberConfig {
@@ -29,10 +29,9 @@ public class CucumberConfig {
         MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
         converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));
 
-        return new RestTemplateBuilder()
-                .rootUri(baseHost)
-                .messageConverters(converter)
-                .build();
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setMessageConverters(asList(converter));
+        return restTemplate;
     }
 
     @Bean
