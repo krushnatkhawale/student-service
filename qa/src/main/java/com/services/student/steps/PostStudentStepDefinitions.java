@@ -16,15 +16,14 @@ import static org.springframework.http.HttpStatus.OK;
 
 @ContextConfiguration(classes = CucumberApp.class, loader = SpringBootContextLoader.class)
 public class PostStudentStepDefinitions {
-    private RestClient client;
 
-    @Autowired
-    public PostStudentStepDefinitions(RestClient client) {
+    private Student student;
+    private RestClient client;
+    private ResponseEntity<Void> postResponseEntity;
+
+    public PostStudentStepDefinitions(@Autowired RestClient client) {
         this.client = client;
     }
-
-    private ResponseEntity<Void> postStudentResponseEntity;
-    private Student student;
 
     @Given("^A student is ready$")
     public void aStudentIsReady() {
@@ -33,11 +32,11 @@ public class PostStudentStepDefinitions {
 
     @When("^post endpoint is hit$")
     public void postEndpointIsHit() {
-        postStudentResponseEntity = client.postStudent(student);
+        postResponseEntity = client.postStudent(student);
     }
 
     @Then("^a student profile is created$")
     public void aStudentProfileIsCreated() {
-        assertEquals(postStudentResponseEntity.getStatusCode(), OK);
+        assertEquals(postResponseEntity.getStatusCode(), OK);
     }
 }
