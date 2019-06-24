@@ -35,6 +35,7 @@ public class RestClient {
 
     private HttpEntity<Student> getRequestEntity(Student student) {
         HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.put(HttpHeaders.CONTENT_TYPE, asList(MediaType.APPLICATION_JSON_VALUE));
         return new HttpEntity<>(student, httpHeaders);
     }
 
