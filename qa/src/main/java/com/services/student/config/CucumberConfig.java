@@ -12,14 +12,11 @@ import static java.lang.String.format;
 @Configuration
 public class CucumberConfig {
 
-    public static final String ROOT_URI_FORMAT = "http://%s:%s";
-    private String host;
-
-    @Value("${port}")
-    private String port;
+    private static final String ROOT_URI_FORMAT = "http://%s:%s";
 
     @Bean
     public RestTemplate restTemplate(@Value("${hostname}") String host, @Value("${port}") String port) {
+
         String baseHost = format(ROOT_URI_FORMAT, host, port);
 
         RestTemplate restTemplate = new RestTemplate();
