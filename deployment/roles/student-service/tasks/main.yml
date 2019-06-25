@@ -18,4 +18,4 @@
         dest: "{{ item.dest }}"
       with_items:
         - { src: "../../app/build/libs/*.jar", dest: "/usr/pi-as-server/student-service" }
-    ignore_error: yes
+  ignore_error: yes
