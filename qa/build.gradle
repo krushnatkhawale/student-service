@@ -13,6 +13,6 @@ dependencies {
     implementation 'io.cucumber:cucumber-junit:4.3.0'
     implementation 'io.cucumber:cucumber-java:4.3.0'
     implementation 'junit:junit:4.12'
-    implementation "org.projectlombok:lombok"
-
+    compileOnly "org.projectlombok:lombok"
+    annotationProcessor "org.projectlombok:lombok"
 }
