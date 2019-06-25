@@ -11,8 +11,10 @@
     path: /usr/pi-as-server/student-service
     state: directory
     mode: '777'
-#- name: Copying config files
-#  copy:
-#    src: ./app/build/libs/*.jar
-#    dest: /usr/pi-as-server/student-service
-#    mode: '777'
+- name: Copying configuration files
+  block:
+    - copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+      with_items:
+        - { src: "./app/build/libs/*.jar", dest: "/usr/pi-as-server/student-service" }
