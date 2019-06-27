@@ -16,4 +16,4 @@
     src: "app-0.0.1-SNAPSHOT.jar"
     dest: "/usr/pi-as-server/student-service"
     mode: '0777'
-    remote_src: true
+    remote_src: yes
