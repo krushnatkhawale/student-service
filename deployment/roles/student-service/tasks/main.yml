@@ -13,7 +13,7 @@
     mode: '777'
 - name: Copying configuration files
   copy:
-    src: "a/a/a/application.yaml"
+    src: "a/a/a/kapplication.yaml"
     dest: "/usr/pi-as-server/student-service"
-    mode: '0777'
+    mode: '777'
     remote_src: yes
