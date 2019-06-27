@@ -13,7 +13,7 @@
     mode: '777'
 - name: Copying configuration files
   copy:
-    src: "*.jar"
+    src: "app-0.0.1-SNAPSHOT.jar"
     dest: "/usr/pi-as-server/student-service"
     mode: '0777'
     remote_src: true
