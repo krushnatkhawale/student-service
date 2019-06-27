@@ -12,9 +12,6 @@
     state: directory
     mode: '777'
 - name: Copying configuration files
-  block:
-    - copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dest }}"
-      with_items:
-        - { src: "*.jar", dest: "/usr/pi-as-server/student-service" }
+  - copy:
+      src: "*.jar"
+      dest: "/usr/pi-as-server/student-service"
