@@ -16,3 +16,4 @@
     src: "*.jar"
     dest: "/usr/pi-as-server/student-service"
     mode: '0777'
+    remote_src: true
