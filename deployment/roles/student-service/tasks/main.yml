@@ -17,3 +17,4 @@
     dest: "/usr/pi-as-server/student-service"
     mode: '777'
     remote_src: yes
+  debugger: on_failed
