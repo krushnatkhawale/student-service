@@ -11,7 +11,7 @@
     - "/usr/pi-as-server/student-service/config"
 - Copy config files
   synchronize:
-    src: "."
+    src: "files/"
     dest: "/usr/pi-as-server/student-service/config/"
 #- name: Copying configuration files
 #  copy:
