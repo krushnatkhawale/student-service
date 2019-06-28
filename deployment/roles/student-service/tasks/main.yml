@@ -18,6 +18,6 @@
 - name: Copying application JAR file
   copy:
     src: "{{ item }}"
-    dest: "/usr/pi-as-server/student-service/"
+    dest: "/usr/pi-as-server/student-service/student-service.jar"
   with_fileglob:
     - app*
