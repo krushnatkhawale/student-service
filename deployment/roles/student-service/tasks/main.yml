@@ -9,15 +9,11 @@
     - "/usr/pi-as-server"
     - "/usr/pi-as-server/student-service/"
     - "/usr/pi-as-server/student-service/config"
-- name: Create application base directory if does not exists
-  file:
-    path: /usr/pi-as-server/student-service
-    state: directory
-    mode: '777'
 - name: Copying configuration files
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   with_items:
     - { src: "application.yaml", dest: "/usr/pi-as-server/student-service/config/application.yaml" }
+    - { src: "app-0.0.1-SNAPSHOT.jar", dest: "/usr/pi-as-server/student-service/config/app-0.0.1-SNAPSHOT.jar" }
   debugger: on_failed
