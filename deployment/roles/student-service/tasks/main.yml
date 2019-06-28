@@ -3,9 +3,12 @@
   ping:
 - name: Create base installation directory if does not exists
   file:
-    path: /usr/pi-as-server
+    path: {{ item }}
     state: directory
-    mode: '777'
+  with_items:
+    - "/usr/pi-as-server"
+    - "/usr/pi-as-server/student-service/"
+    - "/usr/pi-as-server/student-service/config"
 - name: Create application base directory if does not exists
   file:
     path: /usr/pi-as-server/student-service
