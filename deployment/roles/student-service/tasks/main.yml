@@ -15,5 +15,5 @@
     dest: "{{ item.dest }}"
   with_items:
     - { src: "application.yaml", dest: "/usr/pi-as-server/student-service/config/application.yaml" }
-    - { src: "app-0.0.1-SNAPSHOT.jar", dest: "/usr/pi-as-server/student-service/config/app-0.0.1-SNAPSHOT.jar" }
+    - { src: "app*.jar", dest: "/usr/pi-as-server/student-service/config/" }
   debugger: on_failed
