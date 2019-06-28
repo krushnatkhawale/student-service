@@ -21,3 +21,5 @@
     dest: "/usr/pi-as-server/student-service/student-service.jar"
   with_fileglob:
     - app*
+- name: Start Student-service application
+  shell: 'java -jar student-service.jar'
