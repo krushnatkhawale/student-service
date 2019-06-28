@@ -16,8 +16,5 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   with_items:
-    src: "application.yaml"
-    dest: "/usr/pi-as-server/student-service"
-    mode: '777'
-    remote_src: yes
+    - { src: "application.yaml", dest: "/usr/pi-as-server/student-service" }
   debugger: on_failed
