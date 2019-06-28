@@ -17,7 +17,7 @@
     - { src: "config/", dest: "/usr/pi-as-server/student-service/config/" }
 - name: Copying application JAR file
   copy:
-    src: "{{ item.src }}"
+    src: "{{ item }}"
     dest: "/usr/pi-as-server/student-service/"
   with_fileglob:
     - app*
