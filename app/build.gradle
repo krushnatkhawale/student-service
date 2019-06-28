@@ -17,7 +17,7 @@ task copyAppJarToAnsibleFiles {
     copy {
         from 'build/libs'
         include '*.jar'
-        into '../deployment/roles/student-service/files/config'
+        into '../deployment/roles/student-service/files/'
     }
     dependsOn build
 }
