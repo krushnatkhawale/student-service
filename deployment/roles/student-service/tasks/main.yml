@@ -3,7 +3,7 @@
   ping:
 - name: Create base installation directory if does not exists
   file:
-    path: {{ item }}
+    path: "{{ item }}"
     state: directory
   with_items:
     - "/usr/pi-as-server"
