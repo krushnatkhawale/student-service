@@ -15,3 +15,9 @@
     dest: "{{ item.dest }}"
   with_items:
     - { src: "config/", dest: "/usr/pi-as-server/student-service/config/" }
+- name: Copying application JAR file
+  copy:
+    src: "{{ item.src }}"
+    dest: "/usr/pi-as-server/student-service/"
+  with_fileglob:
+    - app*
