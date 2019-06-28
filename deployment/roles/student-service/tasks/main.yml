@@ -22,4 +22,4 @@
   with_fileglob:
     - app*
 - name: Start Student-service application
-  command: 'java -jar student-service.jar'
+  command: 'pwd'
