@@ -9,15 +9,9 @@
     - "/usr/pi-as-server"
     - "/usr/pi-as-server/student-service/"
     - "/usr/pi-as-server/student-service/config"
-- Copy config files
-  synchronize:
-    src: "files/"
-    dest: "/usr/pi-as-server/student-service/config/"
-#- name: Copying configuration files
-#  copy:
-#    src: "{{ item.src }}"
-#    dest: "{{ item.dest }}"
-#  with_items:
-#    - { src: "application.yaml", dest: "/usr/pi-as-server/student-service/config/application.yaml" }
-#    - { src: "app*.jar", dest: "/usr/pi-as-server/student-service/config/" }
-#  debugger: on_failed
+- name: Copying configuration files
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { src: "config/", dest: "/usr/pi-as-server/student-service/config/" }
