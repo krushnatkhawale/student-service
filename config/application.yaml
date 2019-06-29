@@ -1,2 +1,3 @@
 # This is a config file
+logging.path: logs/
 server.port: 9001
