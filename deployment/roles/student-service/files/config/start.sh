@@ -1,0 +1,1 @@
+nohup java -jar /usr/pi-as-server/student-service/student-service.jar &
