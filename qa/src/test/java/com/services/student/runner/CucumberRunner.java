@@ -1,4 +1,4 @@
-package com.services.student;
+package com.services.student.runner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
