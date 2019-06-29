@@ -1,1 +1,3 @@
 # This is a config file
+
+server.port: 9001
