@@ -22,4 +22,4 @@
   with_fileglob:
     - app*
 - name: Start Student-service application
-  command: 'java -jar /usr/pi-as-server/student-service/student-service.jar'
+  command: 'nohup java -jar /usr/pi-as-server/student-service/student-service.jar &'
