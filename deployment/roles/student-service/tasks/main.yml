@@ -31,5 +31,8 @@
     dest: "/usr/pi-as-server/student-service/student-service.jar"
   with_fileglob:
     - app*
-- name: Start Student-service application
-  shell: 'sh /usr/pi-as-server/student-service/start.sh'
+- name: Start student-service application through start.sh
+  shell: "/usr/pi-as-server/student-service/start.sh"
+  args:
+    chdir: "/usr/pi-as-server/student-service"
+    creates: "/usr/pi-as-server/student-service/student-service.pid"
