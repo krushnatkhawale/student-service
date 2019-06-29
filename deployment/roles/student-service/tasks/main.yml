@@ -17,6 +17,14 @@
     - { src: "config/", dest: "/usr/pi-as-server/student-service/config/" }
     - { src: "start.sh", dest: "/usr/pi-as-server/student-service/start.sh" }
     - { src: "stop.sh", dest: "/usr/pi-as-server/student-service/stop.sh" }
+- name: Enabled execute mode for startup scripts
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "u+rwx"
+  with_items:
+    - { src: "start.sh", dest: "/usr/pi-as-server/student-service/start.sh" }
+    - { src: "stop.sh", dest: "/usr/pi-as-server/student-service/stop.sh" }
 - name: Copying application JAR file
   copy:
     src: "{{ item }}"
