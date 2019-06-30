@@ -1,5 +1,5 @@
 ---
-- name: Test connection
+- name: Test connection to remote server
   ping:
 - name: Create base installation directory if does not exists
   file:
