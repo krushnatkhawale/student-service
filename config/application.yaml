@@ -1,2 +1,3 @@
 # This is a config file
+logging.config: config/spring-logback.xml
 server.port: 9001
