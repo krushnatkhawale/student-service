@@ -1,3 +1,2 @@
 # This is a config file
-logging.config: config/logback.xml
 server.port: 9001
