@@ -1,4 +1,3 @@
-# This is a config file
 spring.main.banner-mode: off
 logging.config: config/logback-spring.xml
 server.port: 9001
