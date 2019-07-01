@@ -3,7 +3,6 @@
 
     <property name="LOGS" value="./logs" />
     <property name="APP_NAME" value="student-service" />
-
     <appender name="RollingFile"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOGS}/${APP_NAME}.log</file>
