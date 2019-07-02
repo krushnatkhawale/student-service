@@ -6,7 +6,7 @@
   args:
     chdir: "/usr/pi-as-server/student-service"
   ignore_errors: true
-- name: Create base installation directory if does not exists
+- name: Create directory structure if does not exists
   file:
     path: "{{ item }}"
     state: directory
