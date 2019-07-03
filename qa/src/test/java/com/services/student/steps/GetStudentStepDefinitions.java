@@ -41,7 +41,7 @@ public class GetStudentStepDefinitions {
 
     @Given("^([^\"]*), ([^\"]*), ([^\"]*) of a student$")
     public void firstnameLastNameEmailOfAStudent(String firstName, String lastName, String email) {
-        student = new Student(null, firstName, lastName, email);
+        student = new Student("", firstName, lastName, email);
     }
 
     @And("that student is posted successfully")
