@@ -1,6 +1,12 @@
 Feature: Get student feature
   @Regression @SmokeTest
-  Scenario: Retrieve a created student profile
-    Given getAll endpoint is hit
+  Scenario Outline: Retrieve a created student profile
+    Given <firstName>, <lastName>, <email> of a student
+    And that student is posted successfully
+    When getAll endpoint is hit
     Then response code is 200
-    And a student profile is retrieved
+
+    Examples:
+    | firstName | lastName | email    |
+    | John      | Kale     | jnk@g.com|
+    | Johny     | Khule    | jny@g.com|
