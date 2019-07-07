@@ -5,3 +5,4 @@ This also has ansible configuration and has configuration for a machine where th
 This has 4 endpoints,
  1. Get all student records
  2. Get one by id
+ 3. Post a student record
