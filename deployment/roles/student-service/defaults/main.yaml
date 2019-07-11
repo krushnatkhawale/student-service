@@ -1,2 +1,6 @@
 ---
 # This will contain default values
+
+rootdir: /usr/pi-as-server
+
+appdir: {{ rootdir }}/student-service
