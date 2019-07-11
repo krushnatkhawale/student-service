@@ -16,9 +16,9 @@
     path: "{{ item }}"
     state: directory
   with_items:
-    - "/usr/pi-as-server"
-    - "/usr/pi-as-server/student-service/"
-    - "/usr/pi-as-server/student-service/config"
+    - "{{ rootdir }}"
+    - "{{ appdir }}"
+    - "{{ appdir }}/config"
 - name: Copying configuration files
   copy:
     src: "{{ item.src }}"
