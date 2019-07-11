@@ -2,13 +2,13 @@
 - name: Test connection to remote server
   ping:
 - name: Force terminate if application is running already
-  shell: "/usr/pi-as-server/student-service/stop.sh"
+  shell: "{{ appdir }}/stop.sh"
   args:
-    chdir: "/usr/pi-as-server/student-service"
+    chdir: "{{ appdir }}"
   ignore_errors: true
 - name: Cleanup - delete pid file
   file:
-    path: "/usr/pi-as-server/student-service/stop.sh"
+    path: "{{ appdir }}/stop.sh"
     state: absent
   ignore_errors: true
 - name: Create directory structure if does not exists
@@ -16,33 +16,33 @@
     path: "{{ item }}"
     state: directory
   with_items:
-    - "/usr/pi-as-server"
-    - "/usr/pi-as-server/student-service/"
-    - "/usr/pi-as-server/student-service/config"
+    - "{{ rootdir }}"
+    - "{{ appdir }}"
+    - "{{ appdir }}/config"
 - name: Copying configuration files
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   with_items:
-    - { src: "config/", dest: "/usr/pi-as-server/student-service/config/" }
-    - { src: "start.sh", dest: "/usr/pi-as-server/student-service/start.sh" }
-    - { src: "stop.sh", dest: "/usr/pi-as-server/student-service/stop.sh" }
+    - { src: "config/", dest: "{{ appdir }}/config/" }
+    - { src: "start.sh", dest: "{{ appdir }}/start.sh" }
+    - { src: "stop.sh", dest: "{{ appdir }}/stop.sh" }
 - name: Enabled execute mode for startup scripts
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: "u+rwx"
   with_items:
-    - { src: "start.sh", dest: "/usr/pi-as-server/student-service/start.sh" }
-    - { src: "stop.sh", dest: "/usr/pi-as-server/student-service/stop.sh" }
+    - { src: "start.sh", dest: "{{ appdir }}/start.sh" }
+    - { src: "stop.sh", dest: "{{ appdir }}/stop.sh" }
 - name: Copying application JAR file
   copy:
     src: "{{ item }}"
-    dest: "/usr/pi-as-server/student-service/student-service.jar"
+    dest: "{{ appdir }}/student-service.jar"
   with_fileglob:
     - app*
 - name: Start student-service application through start.sh
-  shell: "/usr/pi-as-server/student-service/start.sh"
+  shell: "{{ appdir }}/start.sh"
   args:
-    chdir: "/usr/pi-as-server/student-service"
-    creates: "/usr/pi-as-server/student-service/student-service.pid"
+    chdir: "{{ appdir }}"
+    creates: "{{ appdir }}/student-service.pid"
