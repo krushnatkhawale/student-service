@@ -42,7 +42,7 @@
   with_fileglob:
     - app*
 - name: Start student-service application through start.sh
-  shell: "/usr/pi-as-server/student-service/start.sh"
+  shell: "{{ appdir }}/start.sh"
   args:
-    chdir: "/usr/pi-as-server/student-service"
-    creates: "/usr/pi-as-server/student-service/student-service.pid"
+    chdir: "{{ appdir }}"
+    creates: "{{ appdir }}/student-service.pid"
