@@ -2,7 +2,7 @@
 - name: Test connection to remote server
   ping:
 - name: Force terminate if application is running already
-  shell: "{{ rootdir }}/student-service/stop.sh"
+  shell: "{{ appdir }}/stop.sh"
   args:
     chdir: "/usr/pi-as-server/student-service"
   ignore_errors: true
