@@ -24,21 +24,21 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   with_items:
-    - { src: "config/", dest: "/usr/pi-as-server/student-service/config/" }
-    - { src: "start.sh", dest: "/usr/pi-as-server/student-service/start.sh" }
-    - { src: "stop.sh", dest: "/usr/pi-as-server/student-service/stop.sh" }
+    - { src: "config/", dest: "{{ appdir }}/config/" }
+    - { src: "start.sh", dest: "{{ appdir }}/start.sh" }
+    - { src: "stop.sh", dest: "{{ appdir }}/stop.sh" }
 - name: Enabled execute mode for startup scripts
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
     mode: "u+rwx"
   with_items:
-    - { src: "start.sh", dest: "/usr/pi-as-server/student-service/start.sh" }
-    - { src: "stop.sh", dest: "/usr/pi-as-server/student-service/stop.sh" }
+    - { src: "start.sh", dest: "{{ appdir }}/start.sh" }
+    - { src: "stop.sh", dest: "{{ appdir }}/stop.sh" }
 - name: Copying application JAR file
   copy:
     src: "{{ item }}"
-    dest: "/usr/pi-as-server/student-service/student-service.jar"
+    dest: "{{ appdir }}/student-service.jar"
   with_fileglob:
     - app*
 - name: Start student-service application through start.sh
