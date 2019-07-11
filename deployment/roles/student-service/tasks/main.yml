@@ -4,11 +4,11 @@
 - name: Force terminate if application is running already
   shell: "{{ appdir }}/stop.sh"
   args:
-    chdir: "/usr/pi-as-server/student-service"
+    chdir: "{{ appdir }}"
   ignore_errors: true
 - name: Cleanup - delete pid file
   file:
-    path: "/usr/pi-as-server/student-service/stop.sh"
+    path: "{{ appdir }}/stop.sh"
     state: absent
   ignore_errors: true
 - name: Create directory structure if does not exists
