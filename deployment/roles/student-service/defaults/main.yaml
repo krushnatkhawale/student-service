@@ -3,4 +3,4 @@
 
 rootdir: /usr/pi-as-server
 
-appdir: {{ rootdir }}/student-service
+appdir: "{{ rootdir }}/student-service"
