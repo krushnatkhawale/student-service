@@ -41,3 +41,4 @@
   args:
     chdir: "{{ appdir }}"
     creates: "{{ appdir }}/student-service.pid"
+  ignore_errors: true
