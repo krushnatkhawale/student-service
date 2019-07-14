@@ -26,7 +26,7 @@
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    mode: "u+rwx"
+    mode: u+rxw,g+rwx,o+rwx
   with_items:
     - { src: "start.sh", dest: "{{ appdir }}/start.sh" }
     - { src: "stop.sh", dest: "{{ appdir }}/stop.sh" }
