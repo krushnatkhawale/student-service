@@ -6,11 +6,6 @@
   args:
     chdir: "{{ appdir }}"
   ignore_errors: true
-- name: Cleanup - delete pid file
-  file:
-    path: "{{ appdir }}/stop.sh"
-    state: absent
-  ignore_errors: true
 - name: Create directory structure if does not exists
   file:
     path: "{{ item }}"
@@ -31,7 +26,7 @@
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
-    mode: "u+rwx"
+    mode: u+rxw,g+rwx,o+rwx
   with_items:
     - { src: "start.sh", dest: "{{ appdir }}/start.sh" }
     - { src: "stop.sh", dest: "{{ appdir }}/stop.sh" }
@@ -46,3 +41,4 @@
   args:
     chdir: "{{ appdir }}"
     creates: "{{ appdir }}/student-service.pid"
+  ignore_errors: true
