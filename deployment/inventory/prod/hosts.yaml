@@ -1,2 +1,2 @@
 [webservers]
-localhost env=prod
+node0 env=prod
