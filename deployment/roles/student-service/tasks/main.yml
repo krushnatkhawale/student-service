@@ -19,6 +19,16 @@
     chdir: "{{ appdir }}"
   ignore_errors: true
   when: backup_previous_deployment
+- name: Cleanup - existing deployment cleanup
+  block:
+  - find:
+      paths: "{{ appdir }}"
+      patterns: "*"
+    register: files_to_delete
+  - file:
+      path: "{{ item.path }}"
+      state: absent
+    with_items: "{{ files_to_delete.files }}"
 - name: Create directory structure if does not exists
   file:
     path: "{{ item }}"
