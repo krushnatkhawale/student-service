@@ -5,7 +5,6 @@
   shell: "{{ appdir }}/stop.sh"
   args:
     chdir: "{{ appdir }}"
-    removes: "student-service.pid"
   ignore_errors: yes
 
 - name: Cleanup - remove backup
