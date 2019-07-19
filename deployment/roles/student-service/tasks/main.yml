@@ -5,12 +5,20 @@
   shell: "{{ appdir }}/stop.sh"
   args:
     chdir: "{{ appdir }}"
+    removes: {{ student-service.pid }}
   ignore_errors: true
-- name: Cleanup - delete pid file
+- name: Cleanup - remove backup
+  when: backup_previous_deployment
   file:
-    path: "{{ appdir }}/stop.sh"
+    path: "{{ appdir }}/../{{ backup_dir }}"
     state: absent
   ignore_errors: true
+- name: Cleanup - take new backup
+  shell: "cp -a ./. \"../{{ backup_dir }}\""
+  args:
+    chdir: "{{ appdir }}"
+  ignore_errors: true
+  when: backup_previous_deployment
 - name: Create directory structure if does not exists
   file:
     path: "{{ item }}"
