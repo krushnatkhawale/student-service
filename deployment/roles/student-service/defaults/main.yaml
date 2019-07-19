@@ -2,4 +2,6 @@
 # This will contain default values
 
 rootdir: "/usr/pi-as-server"
-appdir: "{{ rootdir }}/student-service"
+app: "student-service"
+appdir: "{{ rootdir }}/{{ app }}"
+backup_dir: "{{ app }}-backup"
