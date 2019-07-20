@@ -8,7 +8,6 @@
   ignore_errors: yes
 
 - name: Cleanup - remove backup
-  when: backup_previous_deployment
   file:
     path: "{{ appdir }}/../{{ backup_dir }}"
     state: absent
@@ -19,7 +18,6 @@
   args:
     chdir: "{{ appdir }}"
   ignore_errors: yes
-  when: backup_previous_deployment
 
 - name: Cleanup - existing deployment cleanup
   block:
