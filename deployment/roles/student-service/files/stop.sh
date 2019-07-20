@@ -8,4 +8,4 @@ echo "\nKilling process with pid - $(cat student-service.pid)\n" >> student-serv
 
 sudo kill -9 $(cat student-service.pid)
 
-rm student-service.pid
+sudo rm -f student-service.pid
