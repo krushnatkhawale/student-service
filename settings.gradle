@@ -2,4 +2,4 @@ rootProject.name = 'student-service'
 
 include 'app'
 include 'qa'
-include 'perfTest'
+include 'performance-test'
