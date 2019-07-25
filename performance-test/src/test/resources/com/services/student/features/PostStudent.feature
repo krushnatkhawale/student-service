@@ -1,6 +1,7 @@
 Feature: Post student feature
-  @Regression @SmokeTest
-  Scenario: Create a student profile
-    Given A student is ready
-    When post endpoint is hit
-    Then a student profile is created
+  @PerformanceTest
+  Scenario: Create a student profile stress tests
+    Given A "input file" with sample student record
+    And a list of 100 records is generated
+    When each record is posted individually
+    Then a student profile is created within 1 second
