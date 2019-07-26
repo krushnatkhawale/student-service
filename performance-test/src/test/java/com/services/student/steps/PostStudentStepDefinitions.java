@@ -3,6 +3,7 @@ package com.services.student.steps;
 import com.services.student.CucumberApp;
 import com.services.student.client.RestClient;
 import com.services.student.model.Student;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -25,18 +26,22 @@ public class PostStudentStepDefinitions {
         this.client = client;
     }
 
-    @Given("^A student is ready$")
-    public void aStudentIsReady() {
-        student = new Student();
+    @Given("A {string} with sample student record")
+    public void aWithSampleStudentRecord(String arg0) {
+
     }
 
-    @When("^post endpoint is hit$")
-    public void postEndpointIsHit() {
-        postResponseEntity = client.postStudent(student);
+    @And("a list of {int} records is generated")
+    public void aListOfRecordsIsGenerated(int arg0) {
     }
 
-    @Then("^a student profile is created$")
-    public void aStudentProfileIsCreated() {
-        assertEquals(postResponseEntity.getStatusCode(), OK);
+    @When("each record is posted individually")
+    public void eachRecordIsPostedIndividually() {
+
+    }
+
+    @Then("a student profile is created within {int} second")
+    public void aStudentProfileIsCreatedWithinSecond(int arg0) {
+
     }
 }
