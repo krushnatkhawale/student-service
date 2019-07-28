@@ -11,9 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootContextLoader;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.util.ResourceUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
-import static org.springframework.http.HttpStatus.OK;
 
 @ContextConfiguration(classes = CucumberApp.class, loader = SpringBootContextLoader.class)
 public class PostStudentStepDefinitions {
@@ -21,18 +27,22 @@ public class PostStudentStepDefinitions {
     private Student student;
     private RestClient client;
     private ResponseEntity<Void> postResponseEntity;
+    private String rawRecord;
 
     public PostStudentStepDefinitions(@Autowired RestClient client) {
         this.client = client;
     }
 
-    @Given("A {string} with sample student record")
-    public void aWithSampleStudentRecord(String arg0) {
-
+    @Given("A file {string} with sample student record")
+    public void aWithSampleStudentRecord(String fileName) throws IOException {
+        File file = ResourceUtils.getFile("classpath:" + fileName);
+        rawRecord = Files.lines(file.toPath())
+                        .collect(Collectors.joining());
     }
 
     @And("a list of {int} records is generated")
-    public void aListOfRecordsIsGenerated(int arg0) {
+    public void aListOfRecordsIsGenerated(int noOfRecords) {
+
     }
 
     @When("each record is posted individually")
