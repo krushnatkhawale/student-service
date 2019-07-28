@@ -9,6 +9,6 @@ import org.junit.runner.RunWith;
         features = { "src/test/resources"},
         glue = {"com.services.student.steps"},
         plugin = {"pretty", "html:build/reports/cucumber"})
-public class CucumberRunner {
+public class PerformanceTestsRunner {
 
 }
