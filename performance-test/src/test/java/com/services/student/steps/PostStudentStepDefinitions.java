@@ -64,6 +64,7 @@ public class PostStudentStepDefinitions {
     @When("each record is posted individually")
     public void eachRecordIsPostedIndividually() {
         records.forEach(System.out::println);
+        throw new RuntimeException("Manual termination");
     }
 
     @Then("a student profile is created within {int} second")
