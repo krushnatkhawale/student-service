@@ -46,5 +46,4 @@ public class StudentController {
         studentService.delete(id);
         return ResponseEntity.ok().build();
     }
-
 }
