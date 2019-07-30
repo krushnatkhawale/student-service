@@ -42,8 +42,4 @@ public class StudentRepository {
             return STUDENTS.get(providedId);
         }
     }
-
-    public void delete(String id) {
-        STUDENTS.remove(id);
-    }
 }
