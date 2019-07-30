@@ -28,6 +28,6 @@ public class RestClient {
     }
 
     public void deleteStudent(String id) {
-        restTemplate.delete(BASE_URL + File.separator + id);
+        restTemplate.delete(BASE_URL +  "/"  + id);
     }
 }
