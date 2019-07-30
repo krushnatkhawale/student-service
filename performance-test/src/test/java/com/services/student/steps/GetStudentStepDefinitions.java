@@ -19,7 +19,7 @@ public class GetStudentStepDefinitions {
     private Student student;
     private RestClient client;
     private ResponseEntity<Void> postResponseEntity;
-    private ResponseEntity<List> allStudents;
+    private ResponseEntity<List<Student>> allStudents;
 
     public GetStudentStepDefinitions(@Autowired RestClient client) {
         this.client = client;
