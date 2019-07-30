@@ -1,5 +1,6 @@
 package com.services.student.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.services.student.client.RestClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RootUriTemplateHandler;
@@ -27,5 +28,10 @@ public class CucumberConfig {
     @Bean
     public RestClient restClient(RestTemplate restTemplate) {
         return new RestClient(restTemplate);
+    }
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
     }
 }
