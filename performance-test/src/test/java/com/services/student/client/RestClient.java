@@ -1,6 +1,8 @@
 package com.services.student.client;
 
 import com.services.student.model.Student;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,7 +21,8 @@ public class RestClient {
         return restTemplate.postForEntity(POST_URL, student, Void.class);
     }
 
-    public ResponseEntity<List> getAllStudents() {
-        return restTemplate.getForEntity(POST_URL, List.class);
+    public ResponseEntity<List<Student>> getAllStudents() {
+        return restTemplate.exchange(POST_URL, HttpMethod.GET, null, new ParameterizedTypeReference<List<Student>>() {
+        });
     }
 }
