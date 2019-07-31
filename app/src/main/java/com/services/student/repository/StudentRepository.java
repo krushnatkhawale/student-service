@@ -36,6 +36,10 @@ public class StudentRepository {
         }
     }
 
+    public void deleteStudent(String id){
+        STUDENTS.remove(id);
+    }
+
     private Student filterStudent(String providedId) {
         if (isNull(STUDENTS.get(providedId))) {
             throw new NotFoundException(NO_STUDENT_FOUND);
@@ -43,4 +47,6 @@ public class StudentRepository {
             return STUDENTS.get(providedId);
         }
     }
+
+
 }
