@@ -4,9 +4,12 @@ import com.services.student.exception.NotFoundException;
 import com.services.student.model.Student;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
-import static java.util.Collections.*;
 import static java.util.Objects.isNull;
 
 @Repository
@@ -29,14 +32,10 @@ public class StudentRepository {
     }
 
     public List<Student> findStudents() {
-        if (STUDENTS.isEmpty()) {
-            return EMPTY_LIST;
-        } else {
-            return new ArrayList<>(STUDENTS.values());
-        }
+        return STUDENTS.values().stream().collect(Collectors.toList());
     }
 
-    public void deleteStudent(String id){
+    public void deleteStudent(String id) {
         STUDENTS.remove(id);
     }
 
