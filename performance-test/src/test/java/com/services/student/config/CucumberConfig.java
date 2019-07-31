@@ -16,7 +16,7 @@ public class CucumberConfig {
     private static final String ROOT_URI_FORMAT = "http://%s:%s";
 
     @Bean
-    public RestTemplate restTemplate(@Value("${hostname}") String host, @Value("${port}") String port) {
+    public RestTemplate restTemplate(@Value("${hostname:localhost}") String host, @Value("${port:8080}") String port) {
 
         String baseHost = format(ROOT_URI_FORMAT, host, port);
 

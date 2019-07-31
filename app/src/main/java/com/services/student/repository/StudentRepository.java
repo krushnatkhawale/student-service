@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+import static java.util.Collections.*;
 import static java.util.Objects.isNull;
 
 @Repository
@@ -29,7 +30,7 @@ public class StudentRepository {
 
     public List<Student> findStudents() {
         if (STUDENTS.isEmpty()) {
-            throw new NotFoundException(NO_STUDENTS_FOUND);
+            return EMPTY_LIST;
         } else {
             return new ArrayList<>(STUDENTS.values());
         }
