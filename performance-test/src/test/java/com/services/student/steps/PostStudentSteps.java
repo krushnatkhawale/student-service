@@ -28,7 +28,7 @@ import java.util.stream.IntStream;
 import static org.junit.Assert.assertTrue;
 
 @ContextConfiguration(classes = CucumberApp.class, loader = SpringBootContextLoader.class)
-public class PostStudentStepDefinitions {
+public class PostStudentSteps {
 
     private Student student;
     private RestClient client;
@@ -36,9 +36,9 @@ public class PostStudentStepDefinitions {
     private String rawRecord;
     private List<Student> records;
     private List<RequestStats> postStats;
-    private static final Logger LOGGER = LoggerFactory.getLogger(PostStudentStepDefinitions.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PostStudentSteps.class);
 
-    public PostStudentStepDefinitions(@Autowired RestClient client) {
+    public PostStudentSteps(@Autowired RestClient client) {
         this.client = client;
     }
 
@@ -56,6 +56,44 @@ public class PostStudentStepDefinitions {
                 .collect(Collectors.toList());
     }
 
+    @When("each record is posted individually")
+    public void eachRecordIsPostedIndividually() {
+
+        postStats = records.stream()
+                .map(this::postARecord)
+                .collect(Collectors.toList());
+    }
+
+    @When("each record is posted individually parallely")
+    public void eachRecordIsPostedIndividuallyParallely() {
+
+        postStats = records.parallelStream()
+                .map(this::postARecord)
+                .collect(Collectors.toList());
+    }
+
+
+    @Then("a student profile is created within {int} second")
+    public void aStudentProfileIsCreatedWithinSecond(int sla) {
+        long slaInMillis = sla * 1000;
+        testSLA(slaInMillis);
+    }
+
+    private void testSLA(long sla) {
+        double average = postStats.stream().mapToLong(RequestStats::getDuration).average().getAsDouble();
+        LOGGER.info("Expected sla: {}, actual sla: {}(avg)", sla, average);
+        assertTrue(average < sla);
+    }
+
+    private RequestStats postARecord(Student student) {
+        String key = student.getEmail();
+        long startRequestTime = System.currentTimeMillis();
+        ResponseEntity<Void> responseEntity = client.postStudent(student);
+        long duration = System.currentTimeMillis() - startRequestTime;
+        LOGGER.info("Time taken by record for key '{}' is {}", key, duration);
+        return new RequestStats(key, responseEntity.getStatusCodeValue(), duration);
+    }
+
     private Student generateNewRecord(int recordCount) {
         try {
             JSONObject record = new JSONObject(rawRecord);
@@ -67,36 +105,5 @@ public class PostStudentStepDefinitions {
         } catch (JSONException e) {
             throw new RuntimeException("Error while generating record: " + e.getMessage());
         }
-    }
-
-    @When("each record is posted individually")
-    public void eachRecordIsPostedIndividually() {
-
-        postStats = records.stream()
-                .map(this::postARecord)
-                .collect(Collectors.toList());
-    }
-
-
-    @Then("a student profile is created within {int} second")
-    public void aStudentProfileIsCreatedWithinSecond(int sla) {
-        long slaInMillis = sla * 1000;
-
-        testSLA(slaInMillis);
-    }
-
-    private void testSLA(long sla) {
-        double average = postStats.stream().mapToLong(RequestStats::getDuration).average().getAsDouble();
-        LOGGER.info("Expected sla: {}, actual sla: {}(avg)", sla, average);
-        assertTrue(average< sla);
-    }
-
-    private RequestStats postARecord(Student student) {
-        String key = student.getEmail();
-        long startRequestTime = System.currentTimeMillis();
-        ResponseEntity<Void> responseEntity = client.postStudent(student);
-        long duration = System.currentTimeMillis() - startRequestTime;
-        LOGGER.info("Time taken by record for key '{}' is {}", key, duration);
-        return new RequestStats(key, responseEntity.getStatusCodeValue(), duration);
     }
 }
