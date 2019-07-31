@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class StudentService {
@@ -17,18 +19,21 @@ public class StudentService {
     }
 
     public Student save(Student student) {
-        return studentRepository.saveStudent(student);
+        String id = UUID.randomUUID().toString();
+        student.setId(id);
+        return studentRepository.save(student);
     }
 
     public Student get(String id) {
-        return studentRepository.findStudent(id);
+        return studentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No student record found with id " + id));
     }
 
     public List<Student> getAll() {
-        return studentRepository.findStudents();
+        return studentRepository.findAll();
     }
 
     public void delete(String id) {
-        studentRepository.deleteStudent(id);
+        studentRepository.deleteById(id);
     }
 }
