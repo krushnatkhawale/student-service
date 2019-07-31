@@ -11,6 +11,7 @@ dependencies {
     compileOnly "org.projectlombok:lombok"
     annotationProcessor "org.projectlombok:lombok"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
+    implementation 'com.h2database:h2'
 }
 
 task copyAppJarToAnsibleFiles {
