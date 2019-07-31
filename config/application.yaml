@@ -1,3 +1,10 @@
-spring.main.banner-mode: off
 logging.config: config/logback-spring.xml
 server.port: 9001
+
+spring:
+  main.banner-mode: off
+  datasource.url: jdbc:h2:mem:testdb
+  datasource.driverClassName: org.h2.Driver
+  datasource.username: sa
+  datasource.password: password
+  jpa.database-platform: org.hibernate.dialect.H2Dialect
