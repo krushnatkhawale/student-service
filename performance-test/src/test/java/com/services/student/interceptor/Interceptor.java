@@ -14,52 +14,6 @@ import java.util.stream.Collectors;
 
 public class Interceptor {
 
-<<<<<<< HEAD
-    private final RestClient restClient;
-    private List<String> allStudents;
-    private static final Logger LOGGER = LoggerFactory.getLogger(Interceptor.class);
-
-    public Interceptor(RestClient restClient) {
-        this.restClient = restClient;
-    }
-
-=======
-<<<<<<< Updated upstream
->>>>>>> fe0354c3c264f0c47e926dcfd370efffd2f5422f
-    @Before
-    public void beforeScenario() {
-
-        fetchAllRecordIdsFromAPI();
-        deleteAllRecordsBeforePerformanceTests();
-        System.out.println("This will run before the Scenario");
-    }
-
-    private void deleteAllRecordsBeforePerformanceTests() {
-        LOGGER.info("Deleting all records({}) from DB before running performance tests", allStudents.size());
-        allStudents.forEach(restClient::deleteStudent);
-    }
-
-    private void fetchAllRecordIdsFromAPI() {
-        ResponseEntity<List<Student>> allStudentsResponse = restClient.getAllStudents();
-
-        if (allStudentsResponse.getStatusCode() == HttpStatus.OK) {
-            allStudents = allStudentsResponse.getBody()
-                    .stream()
-                    .map(Student::getId)
-                    .collect(Collectors.toList());
-            LOGGER.info("Number of records found in DB are: {}", allStudents.size());
-        }
-    }
-
-    @After
-    public void afterScenario() {
-        System.out.println("This will run after the Scenario");
-    }
-<<<<<<< HEAD
-}
-=======
-}
-=======
     private static final Logger LOGGER = LoggerFactory.getLogger(Interceptor.class);
     private static final String PRE_PROCESSING = "Performance tests pre-processing";
     private static final String POST_PROCESSING = "Performance tests post-processing";
@@ -102,5 +56,3 @@ public class Interceptor {
         }
     }
 }
->>>>>>> Stashed changes
->>>>>>> fe0354c3c264f0c47e926dcfd370efffd2f5422f
