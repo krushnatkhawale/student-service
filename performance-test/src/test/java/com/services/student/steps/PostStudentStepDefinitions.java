@@ -87,7 +87,7 @@ public class PostStudentStepDefinitions {
 
     private void testSLA(long sla) {
         double average = postStats.stream().mapToLong(RequestStats::getDuration).average().getAsDouble();
-        LOGGER.info("Expected sla: {}, actual sla: {}", sla, average);
+        LOGGER.info("Expected sla: {}, actual sla: {}(avg)", sla, average);
         assertTrue(average< sla);
     }
 
