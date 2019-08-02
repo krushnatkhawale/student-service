@@ -1,45 +1,12 @@
 package com.services.student.repository;
 
-import com.services.student.exception.NotFoundException;
 import com.services.student.model.Student;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.*;
-
-import static java.util.Objects.isNull;
+import java.util.List;
 
 @Repository
-public class StudentRepository {
-
-    private static final String NO_STUDENT_FOUND = "No student found";
-    private static final String NO_STUDENTS_FOUND = "No STUDENTS found";
-
-    private static final Map<String, Student> STUDENTS = new HashMap<>();
-
-    public Student saveStudent(Student newStudent) {
-        String id = UUID.randomUUID().toString();
-        newStudent.setId(id);
-        STUDENTS.put(id, newStudent);
-        return newStudent;
-    }
-
-    public Student findStudent(String providedId) {
-        return filterStudent(providedId);
-    }
-
-    public List<Student> findStudents() {
-        if (STUDENTS.isEmpty()) {
-            throw new NotFoundException(NO_STUDENTS_FOUND);
-        } else {
-            return new ArrayList<>(STUDENTS.values());
-        }
-    }
-
-    private Student filterStudent(String providedId) {
-        if (isNull(STUDENTS.get(providedId))) {
-            throw new NotFoundException(NO_STUDENT_FOUND);
-        } else {
-            return STUDENTS.get(providedId);
-        }
-    }
+public interface StudentRepository extends CrudRepository<Student, String> {
+    public List<Student> findAll();
 }
