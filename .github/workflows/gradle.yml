@@ -31,6 +31,6 @@ jobs:
     - name: Run tests
       run: |
         sh gradlew clean test -x performance-test:test -x qa:test
-    - name: Create executable Jar
+    - name: Create executable jar
       run: |
         sh gradlew build -x performance-test:test -x qa:test
