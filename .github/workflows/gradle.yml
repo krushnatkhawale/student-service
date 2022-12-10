@@ -30,7 +30,7 @@ jobs:
         ls -ltr
     - name: Run tests
       run: |
-        sh gradlew clean test  -x :performance-test:test
-    - name: Create executable Jar
+        sh gradlew clean test -x performance-test:test -x qa:test
+    - name: Create executable jar
       run: |
-        sh gradlew build -x :performance-test:test
+        sh gradlew build -x performance-test:test -x qa:test
