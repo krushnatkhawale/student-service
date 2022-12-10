@@ -33,4 +33,4 @@ jobs:
         sh gradlew clean test
     - name: Create executable Jar
       run: |
-        sh gradlew build
+        sh gradlew build -x :performance-test:test
