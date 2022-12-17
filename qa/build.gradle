@@ -5,6 +5,8 @@ plugins {
     id 'org.springframework.boot' version '2.1.6.RELEASE'
 }
 
+sourceCompatibility = '11'
+
 bootJar {
     enabled=false
 }
