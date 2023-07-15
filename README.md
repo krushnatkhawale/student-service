@@ -12,4 +12,4 @@ This has 4 endpoints,
 
 #### Github action: https://github.com/krushnatkhawale/student-service/actions
 
-https://github.com/krushnatkhawale/student-service/actions/workflows/gradle.yml/badge.svg
+![Actions status](https://github.com/krushnatkhawale/student-service/actions/workflows/gradle.yml/badge.svg)
