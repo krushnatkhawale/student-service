@@ -7,3 +7,7 @@ This has 4 endpoints,
  2. Get one by id
  3. Post a student record
  4. Delete a record by id
+
+
+
+## Github action: https://github.com/krushnatkhawale/student-service/actions
