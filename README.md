@@ -8,6 +8,7 @@ This has 4 endpoints,
  3. Post a student record
  4. Delete a record by id
 
+https://medium.com/m/callback/email?token=149a6928afae&operation=login&state=medium&source=email-31986235f600-1702908042158-auth.login------0-------------------c4fbc310_4ac9_48c7_8ffd_50eac19d34ad
 
 
 #### Github action: https://github.com/krushnatkhawale/student-service/actions
